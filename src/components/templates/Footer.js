@@ -71,7 +71,7 @@ function Footer() {
       </div>
       <div className="flex items-center justify-center py-3 ">
         <p className="font-yekan font-normal text-[15px]">
-          کلیه حقوق این وب سایت متعلق به تورینو میباشد.
+          کلیه حقوق این وب سایت متعلق به تورینو میباشد. | طراحی شده با ❤️
         </p>
       </div>
     </div>

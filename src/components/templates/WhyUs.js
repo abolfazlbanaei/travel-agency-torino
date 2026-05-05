@@ -1,3 +1,100 @@
+// "use client";
+// import Image from "next/image";
+// import React from "react";
+// import p1 from "@/images/slider/1.svg";
+// import p2 from "@/images/slider/2.svg";
+// import p3 from "@/images/slider/3.svg";
+// import p4 from "@/images/slider/4.svg";
+// import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+
+// import arrowR from "@/images/icons/arrow-right.svg";
+// import arrowL from "@/images/icons/arrow-left.svg";
+
+// import "swiper/css";
+// import "swiper/css/effect-cards";
+
+// import "../../app/globals.css";
+
+// // import required modules
+// import { EffectCards, Pagination, Navigation } from "swiper/modules";
+// function WhyUs() {
+//   const swiper = useSwiper();
+//   return (
+//     <div className="flex gap-24 justify-between pr-[26px] pl-[40px] pt-[91px] pb-4 max-md:flex-col max-md:gap-4 ">
+//       <div className=" max-w-[517px] flex flex-col gap-4 ">
+//         <div className="flex gap-[15px]">
+//           <div className="bg-gradient-to-b from-green-500 to-emerald-800 rounded-[50%] w-[58px] h-[58px] flex items-center justify-center">
+//             <p className=" absolute text-white font-bold text-[38px]">؟</p>
+//           </div>
+//           <p className="text-[40px] mb-4 font-vazir font-extrabold">
+//             چرا <span className="text-primary-color ">تورینو </span>؟
+//           </p>
+//         </div>
+//         <h2 className="font-medium font-vazir  text-[24px] max-md:hidden">
+//           تور طبیعت گردی و تاریخی
+//         </h2>
+//         <p className="text-justify text-text-color text-[20px]  lead-[44px] font-iranSans max-md:hidden">
+//           اگر دوست داشته باشید که یک جاذبه طبیعی را از نزدیک ببینید و در دل
+//           طبیعت چادر بزنید یا در یک اقامتگاه بوم گردی اتاق بگیرید، باید تورهای
+//           طبیعت‌گردی را خریداری کنید. اما اگر بخواهید از جاذبه‌های گردشگری و
+//           آثار تاریخی یک مقصد خاص بازدید کنید، می‌توانید تورهای فرهنگی و تاریخی
+//           را خریداری کنید.
+//         </p>
+//       </div>
+//       <div className="flex flex-col gap-5">
+//         <Swiper
+//           effect={"cards"}
+//           spaceBetween={30}
+//           grabCursor={true}
+//           modules={[EffectCards, Pagination, Navigation]}
+//           pagination={{
+//             clickable: true,
+//           }}
+    
+//         >
+//           <SwiperSlide>
+//             <Image
+       
+//               className=" w-[389px] h-[479px] "
+//               alt="slider"
+//               src={p1}
+//               width={700}
+//               height={700}
+//             />
+//           </SwiperSlide>
+
+//           <SwiperSlide>
+//             <Image
+//               className=" w-[389px] h-[479px] "
+//               alt="slider"
+//               src={p3}
+//               width={500}
+//               height={700}
+//             />
+//           </SwiperSlide>
+//           <SwiperSlide>
+//             <Image
+//               className=" w-[389px] h-[479px] "
+//               alt="slider"
+//               src={p4}
+//               width={500}
+//               height={700}
+//             />
+//           </SwiperSlide>
+//         </Swiper>
+//         {/* 
+//         <div className="flex gap-[40px] items-center relative right-[100px]">
+//           <Image src={arrowR} width={36} height={36} alt="arrow" />
+//           <p className="text-[24px]">1/4</p>
+//           <Image src={arrowL} width={36} height={36} alt="arrow" />
+//         </div> */}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default WhyUs;
+
 "use client";
 import Image from "next/image";
 import React from "react";
@@ -12,13 +109,17 @@ import arrowL from "@/images/icons/arrow-left.svg";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
+import "swiper/css/navigation"; // <-- این خط را اضافه کن
 
 import "../../app/globals.css";
 
 // import required modules
-import { EffectCards, Pagination, Navigation } from "swiper/modules";
+import { EffectCards, Pagination, Navigation } from "swiper/modules"; // <-- Navigation اینجا اضافه شده
+
 function WhyUs() {
-  const swiper = useSwiper();
+  // const swiper = useSwiper(); // این خط معمولا برای دسترسی به متدهاش استفاده میشه، اگر لازمش نداری میتونی حذف کنی
+  // فعلا لازم نیست چون میخوایم از navigation خود swiper استفاده کنیم
+
   return (
     <div className="flex gap-24 justify-between pr-[26px] pl-[40px] pt-[91px] pb-4 max-md:flex-col max-md:gap-4 ">
       <div className=" max-w-[517px] flex flex-col gap-4 ">
@@ -46,15 +147,16 @@ function WhyUs() {
           effect={"cards"}
           spaceBetween={30}
           grabCursor={true}
-          modules={[EffectCards, Pagination, Navigation]}
+          modules={[EffectCards, Pagination, Navigation]} // <-- Navigation اینجا اضافه شده
           pagination={{
             clickable: true,
           }}
-    
+          navigation={true} // <-- این خط را اضافه کن تا دکمه‌های پیش‌فرض Swiper فعال شوند
+          // اگر بخواهی ظاهر دکمه‌ها را خودت بسازی، باید navigation را false کنی
+          // و به جای آن از کامپوننت‌های خودت استفاده کنی
         >
           <SwiperSlide>
             <Image
-       
               className=" w-[389px] h-[479px] "
               alt="slider"
               src={p1}
@@ -62,7 +164,6 @@ function WhyUs() {
               height={700}
             />
           </SwiperSlide>
-
           <SwiperSlide>
             <Image
               className=" w-[389px] h-[479px] "
@@ -81,12 +182,18 @@ function WhyUs() {
               height={700}
             />
           </SwiperSlide>
+          {/* SwiperSlide های دیگر را اینجا اضافه کن */}
         </Swiper>
-        {/* 
-        <div className="flex gap-[40px] items-center relative right-[100px]">
-          <Image src={arrowR} width={36} height={36} alt="arrow" />
-          <p className="text-[24px]">1/4</p>
-          <Image src={arrowL} width={36} height={36} alt="arrow" />
+
+        {/* اگر میخوای ظاهر دکمه ها کاملا سفارشی باشه، این قسمت رو فعال کن و navigation={true} رو حذف کن */}
+        {/* <div className="flex gap-[40px] items-center justify-center mt-5">
+          <button onClick={() => swiper.slidePrev()} className="swiper-button-prev">
+            <Image src={arrowL} width={36} height={36} alt="arrow" />
+          </button>
+          <div className="swiper-pagination"></div> // صفحه بندی هم اینجا میاد
+          <button onClick={() => swiper.slideNext()} className="swiper-button-next">
+            <Image src={arrowR} width={36} height={36} alt="arrow" />
+          </button>
         </div> */}
       </div>
     </div>

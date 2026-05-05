@@ -18,38 +18,40 @@ function SearchBox() {
   const { data, isPending, refetch } = useGetTours(query);
   const { register, handleSubmit, control, reset } = useForm();
 
-  const clickHandler = () => {
-    if (showCalendar === "") return setShowCalendar("hidden");
-    setShowCalendar("");
-  };
   useEffect(() => {
     const originId = getQuery("originId");
     const destinationId = getQuery("destinationId");
     if (originId && destinationId) reset({ originId, destinationId });
     console.log({ originId, destinationId });
   }, []);
+
   const submitHandler = (form) => {
     const query = QueryString.stringify(flattenObject(form));
     router.push(`/?${query}`);
   };
+
+  const fieldBase =
+    "flex items-center gap-2 rounded-[14px] border border-transparent bg-white px-4 py-3 transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-0.5 focus-within:border-primary-color focus-within:ring-2 focus-within:ring-primary-color/20";
+
+  const selectBase =
+    "w-full min-w-[140px] appearance-none bg-transparent outline-none text-[15px] font-medium text-gray-700 cursor-pointer";
+
   return (
     <div className="h-[71px] max-lg:h-auto">
-      <div className=" w-fit h-auto mt-[17px] flex flex-col gap-[28px] ">
+      <div className="w-fit h-auto mt-[17px] flex flex-col gap-[28px]">
         <h1 className="text-[28px] text-center font-yekan font-medium max-sm:text-[16px] max-md:text-[18px]">
-          <span className="text-primary-color ">تورینو </span>
+          <span className="text-primary-color">تورینو </span>
           برگزار کننده بهترین تور های داخلی و خارجی
         </h1>
+
         <form
-          className="flex max-lg:flex-wrap  border rounded-[20px] max-lg:border-none py-[7.5px] pr-[2px] pl-[10px] max-lg:items-center max-lg:w-auto max-lg:gap-6"
+          className="flex max-lg:flex-wrap border border-gray-200 rounded-[20px] bg-white shadow-sm max-lg:border-none p-[10px] gap-3 max-lg:items-center max-lg:w-auto"
           onSubmit={handleSubmit(submitHandler)}
         >
-          <div className="flex max-lg:flex-wrap  max-lg:h-auto  max-lg:justify-between  w-full relative max-lg:items-center  max-lg:gap-2  max-sm:gap-x-1">
-            <div className="flex gap-2 border-l pr-[18px]  max-lg:border max-lg:w-[48%] rounded-[12px] pt-[14px] pb-[14px]">
+          <div className="flex max-lg:flex-wrap max-lg:justify-between w-full relative max-lg:items-center gap-3">
+            <div className={`${fieldBase} max-lg:w-[48%] max-lg:border`}>
               <Image src={location} width={20} height={20} alt="location" />
-              <select
-                className="max-md:w-full w-[200px] outline-none appearance-none"
-                {...register("originId")}
-              >
+              <select {...register("originId")} className={selectBase}>
                 <option value="1">تهران</option>
                 <option value="2">سنندج</option>
                 <option value="7">مشهد</option>
@@ -63,12 +65,12 @@ function SearchBox() {
                 <option value="10">استانبول</option>
               </select>
             </div>
-            <div className="flex gap-2 border-l pr-[18px]  max-lg:border max-lg:w-[48%] rounded-[12px] pt-[14px] pb-[14px] ">
-              <Image src={location} width={20} height={20} alt="location" />
 
+            <div className={`${fieldBase} max-lg:w-[48%] max-lg:border`}>
+              <Image src={location} width={20} height={20} alt="location" />
               <select
-                className="max-md:w-full w-[200px] outline-none appearance-none"
                 {...register("destinationId")}
+                className={selectBase}
               >
                 <option value="1">تهران</option>
                 <option value="2">سنندج</option>
@@ -83,7 +85,8 @@ function SearchBox() {
                 <option value="10">استانبول</option>
               </select>
             </div>
-            <div className="relative max-lg:border max-lg:w-full rounded-[12px] pt-[14px] pb-[14px]">
+
+            <div className={`${fieldBase} relative max-lg:w-full max-lg:border`}>
               <Controller
                 control={control}
                 name="date"
@@ -103,7 +106,7 @@ function SearchBox() {
                 )}
               />
               <Image
-                className=" absolute max-lg:top-[1px] max-lg:right-3 right-3 top-[15px]"
+                className="absolute right-3 top-1/2 -translate-y-1/2"
                 src={calender}
                 width={20}
                 height={20}
@@ -111,9 +114,10 @@ function SearchBox() {
               />
             </div>
           </div>
+
           <button
             type="submit"
-            className="w-[190px] h-[51px] bg-primary-color rounded-[16px] text-white max-lg:w-full"
+            className="w-[190px] h-[51px] bg-primary-color rounded-[16px] text-white font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] max-lg:w-full"
           >
             جست و جو
           </button>

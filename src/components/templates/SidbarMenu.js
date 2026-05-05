@@ -58,37 +58,4 @@ function SidbarMenu() {
   );
 }
 
-// .sidenav {
-//   height: 100%;
-//   width: 0;
-//   position: fixed;
-//   z-index: 1;
-//   top: 0;
-//   right: 0;
-//   background-color: #f4f2ea;
-//   overflow-x: hidden;
-//   transition: 0.5s;
-//   padding-top: 60px;
-// }
-
-// .sidenav a {
-//   cursor: pointer;
-//   padding: 8px 8px 8px 32px;
-//   text-decoration: none;
-//   font-size: 16px;
-//   color: var(--black-color);
-//   display: block;
-//   transition: 0.3s;
-// }
-
-// .sidenav a:hover {
-//   color: #f1f1f1;
-// }
-
-// .sidenav .closebtn {
-//   position: absolute;
-//   top: 0;
-//   left: 5px;
-//   font-size: 36px;
-// }
 export default SidbarMenu;
