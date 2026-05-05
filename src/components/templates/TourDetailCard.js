@@ -158,7 +158,7 @@ function TourDetailCard({ data }) {
             </p>
           </div>
           <span className="font-vazir font-medium text-[16px]">
-            بیمه 50 هزار دیناری
+            بیمه 50 هزار دلاری
           </span>
         </div>
       </div>

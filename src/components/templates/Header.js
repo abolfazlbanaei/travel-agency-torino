@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useContext, useState } from "react";
 import logo from "@/images/Torino-logo.svg";
 import arrow from "@/images/icons/arrow-down.svg";
@@ -17,13 +18,12 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const { setShowLoginForm } = useContext(loginFormContext);
   const router = useRouter();
-  console.log(router);
   const { data } = useGetUserData();
-  console.log(data);
   const { showSidebar, setShowSidebar } = useContext(sidebarContext);
+
   return (
     <>
-      <header className="w-screen pt-[15px] pb-3 px-[126px] max-sm:px-[31px] max-md:px-[62px] h-[74px]  flex justify-between items-center shadow">
+      <header className="w-screen pt-[15px] pb-3 px-[126px] max-sm:px-[31px] max-md:px-[62px] h-[74px] flex justify-between items-center shadow">
         <div className="flex items-center gap-[84px] max-lg:hidden">
           <Image
             src={logo}
@@ -31,21 +31,46 @@ function Header() {
             height={44}
             alt="logo"
             onClick={() => router.push("/")}
+            className="cursor-pointer"
           />
-          <div className="flex gap-[18px] ">
-            <p>صفحه اصلی</p>
-            <p>خدمات گردشگری</p>
-            <p>درباره ما</p>
-            <p>تماس با ما</p>
+
+          <div className="flex gap-[18px]">
+            <Link
+              href="/"
+              className="text-gray-700 transition-colors duration-300 hover:text-primary-color hover:font-semibold"
+            >
+              صفحه اصلی
+            </Link>
+            <Link
+              href="/"
+              className="text-gray-700 transition-colors duration-300 hover:text-primary-color hover:font-semibold"
+            >
+              خدمات گردشگری
+            </Link>
+            <Link
+              href="/"
+              className="text-gray-700 transition-colors duration-300 hover:text-primary-color hover:font-semibold"
+            >
+              درباره ما
+            </Link>
+            <Link
+              href="/"
+              className="text-gray-700 transition-colors duration-300 hover:text-primary-color hover:font-semibold"
+            >
+              تماس با ما
+            </Link>
           </div>
         </div>
+
         <div
           className="hidden max-lg:inline"
           onClick={() => setShowSidebar(true)}
         >
-          <Image src={menu} width={24} height={24} />
+          <Image src={menu} width={24} height={24} alt="menu" />
         </div>
-        <div className=" relative">
+
+        {/* بخش ورود و پروفایل */}
+        <div className="relative">
           {!data?.data ? (
             <Login_Button className="sm:hidden" onClick={setShowLoginForm} />
           ) : (

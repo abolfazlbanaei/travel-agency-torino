@@ -50,11 +50,11 @@ function WhyUs() {
           pagination={{
             clickable: true,
           }}
-          // className="mySwiper"
+    
         >
           <SwiperSlide>
             <Image
-              // className=" relative right-0 z-30 w-[389] h-[479]"
+       
               className=" w-[389px] h-[479px] "
               alt="slider"
               src={p1}
