@@ -61,7 +61,7 @@
     "title": "سلیمانیه",
     "fleetVehicle": "SUV",
     "price": 35000,
-    "availableSeats": 39,
+    "availableSeats": 37,
     "insurance": true,
     "options": [
       "نهار و صبحانه",
@@ -107,7 +107,7 @@
     "title": "تور مازندران",
     "fleetVehicle": "SUV",
     "price": 185000,
-    "availableSeats": 298,
+    "availableSeats": 297,
     "insurance": true,
     "options": [
       "نهار و صبحانه",

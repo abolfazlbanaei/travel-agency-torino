@@ -14,7 +14,7 @@ function EditUserAccInfo({ form, formHandler, submitHandler }) {
         <div className="flex gap-9 ">
           <p className="text-[14px] font-light font-yekan">شماره مبایل</p>
           <span className="text-[14px] font-normal text-text-color font-vazir">
-            ۰۹۱۷۹۵۸۹۳۹۵
+            09...
           </span>
         </div>
         <div className="flex  gap-3">
