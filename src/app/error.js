@@ -1,4 +1,4 @@
-"use client"; // Error components must be Client Components
+"use client"; 
 
 import { useEffect } from "react";
 import Image from "next/image";
@@ -7,7 +7,6 @@ import React from "react";
 import errorImg from "@/images/connectionError.svg";
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 

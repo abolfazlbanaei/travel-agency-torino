@@ -180,5 +180,12 @@
     "amount": 35000,
     "type": "Purchase",
     "createdAt": "2026-05-05T07:25:08.919Z"
+  },
+  {
+    "id": "04fb2e9d-235d-4df3-9357-3772b834762c",
+    "userId": "1dfe5e74-f321-448f-8878-672165962466",
+    "amount": 240000,
+    "type": "Purchase",
+    "createdAt": "2026-05-09T08:30:07.414Z"
   }
 ]

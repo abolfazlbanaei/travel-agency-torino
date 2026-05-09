@@ -39,10 +39,10 @@ function SendOTPForm({ setMobile, mobile, setStep, setShowLoginForm }) {
       </h1>
       <form onSubmit={sendOTPHandler}>
         <label className="text-black font-yekan font-light text-[16px]">
-          شماره مبایل خود را وارد کنید
+         شماره موبایل خود را وارد کنید
         </label>
         <input
-          placeholder="09170000000"
+          placeholder=" ..........09"
           className="h-[54px] w-[491px] placeholder:font-vazir placeholder:font-light font-vazir font-light border border-black/25 rounded-[6px] outline-none mt-3
       pr-2 mb-10 max-md:w-[278px]"
           value={mobile}

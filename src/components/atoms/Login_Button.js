@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import person from "@/images/icons/person.svg";
@@ -8,15 +9,21 @@ function Login_Button({ onClick }) {
     <>
       <button
         onClick={() => onClick(true)}
-        className="w-10 h-10 hidden  items-center justify-center rounded-lg border-2 border-primary-color text-primary-color max-lg:flex "
+        className="w-10 h-10 hidden items-center justify-center rounded-lg border-2 border-primary-color text-primary-color max-lg:flex "
       >
-        <Image className="inline" src={login} width={24} height={24} />
+        <Image
+          className="inline"
+          src={login}
+          width={24}
+          height={24}
+          alt="آیکون ورود"
+        />
       </button>
       <button
         onClick={() => onClick(true)}
         className="w-[166px] h-11 flex items-center justify-center rounded-lg border-2 border-primary-color text-primary-color max-lg:hidden "
       >
-        <Image className="inline" src={person} />
+        <Image className="inline" src={person} alt="ورود و ثبت نام" />
         ورود | ثبت نام
       </button>
     </>
